@@ -1,12 +1,12 @@
-const http = require('http');
+const express = require("express"),
+      burgerCon = require("../controllers/burger_controller");
 
-const hostname = '127.0.0.1';
 const port = 8080;
 
+var app = express();
+
+app.use("/burger", burgerCon);
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
 });
 
 server.listen(port, hostname, () => {
