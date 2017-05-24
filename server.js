@@ -1,14 +1,11 @@
 const express = require("express"),
-      burgerCon = require("../controllers/burger_controller");
-
-const port = 8080;
+      burgerCon = require("./controllers/burgers_controller");
 
 var app = express();
+const PORT = process.env.PORT || 8080;
 
 app.use("/burger", burgerCon);
-const server = http.createServer((req, res) => {
-});
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
 });

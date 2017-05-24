@@ -1,7 +1,5 @@
-//const express = require("express");
-const express = require("../models/burger.js");
-
-var express = require('express');
+const express = require("express");
+const burger = require("../models/burger.js");
 
 var router = express.Router();
 

@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '!Apple45', //REMOVE THIS LINE BEFORE AND ADD TO GIT IGNORE
-  database : 'my_db'
+  database : 'burgers_db'
 });
 try {
 connection.connect();
