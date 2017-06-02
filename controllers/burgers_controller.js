@@ -1,11 +1,10 @@
 const express = require("express");
-const exphbs  = require('express-handlebars');
 var burger = require("../models/burger");
 
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.sendFile();
+  res.render("index");
 });
 
 router.get('/select', function(req, res) {
