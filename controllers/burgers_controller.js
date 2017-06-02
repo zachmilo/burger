@@ -4,18 +4,29 @@ var burger = require("../models/burger");
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.render("index");
+  var data = {
+    eatenBurgers: [],
+    burgers: []
+    };
+  burger.all("burgers",function(result) {
+    for(var burger in result) {
+      if (result[burger].devoured === 1)
+      {
+        data.eatenBurgers.push(result[burger]);
+      }
+      else {
+        data.burgers.push(result[burger]);
+      }
+    }
+    res.render("index",data);
+  });
 });
 
 router.get('/select', function(req, res) {
-  burger.all("burgers",function(result) {
-    res.send(result);
-  });
 });
 
 router.post('/insert', function(req, res) {
   var burgerName = req.body.burgerName;
-  console.log(burgerName);
   burger.create(burgerName,function(result) {
     res.send(result);
   });
@@ -24,7 +35,6 @@ router.post('/insert', function(req, res) {
 router.post('/update', function(req, res) {
   var burgerID = req.body.burgerID;
   var devoured = req.body.devoured;
-  console.log(req.body);
   burger.update(burgerID,devoured, function(result) {
     res.send(result);
   });

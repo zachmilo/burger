@@ -2,11 +2,11 @@
   <ol id="savedBurgers" class="demo-list-item mdl-list">
     {{#each burgers}}
     <li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">
-        {{this}}
+      <span burgerID= "{{this.id}}" class="mdl-list__item-primary-content">
+        {{this.burger_name}}
       </span>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-        Button
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eatMe">
+        Devour Me
       </button>
     </li>
     {{/each}}
@@ -25,14 +25,11 @@
  </div>
  <div class="mdl-cell mdl-cell--4-col">
    <ol id="eatenBurgers" class="demo-list-item mdl-list">
-     {{#each burgers}}
+     {{#each eatenBurgers}}
      <li class="mdl-list__item">
-       <span class="mdl-list__item-primary-content">
-         {{this}}
+       <span class="mdl-chip">
+         <span class="mdl-chip__text">{{this.burger_name}}</span>
        </span>
-       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-         Button
-       </button>
      </li>
      {{/each}}
    </ol>

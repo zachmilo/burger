@@ -1,6 +1,6 @@
 var burgers = {};
 $(document).ready(function() {
-
+  eatMeButton();
   $("#addBurger").click(function() {
     var burgerName = $("#burgerInput").val();
     $.ajax({
@@ -21,6 +21,7 @@ $(document).ready(function() {
 
       $( "#savedBurgers" ).append(burger);
       eatMeButton();
+      $("#burgerInput").val("");
     }).fail(function(e) {
       console.log(e);
     });
@@ -29,8 +30,6 @@ $(document).ready(function() {
 });
 
 function eatMeButton() {
-
-
 
   $(".eatMe").click(function() {
     var burgerID = $(this).siblings().attr("burgerID");
@@ -44,11 +43,11 @@ function eatMeButton() {
     }).fail(function(e) {
       console.log(e);
     });
-
+    $(this).parent().hide();
     var burgerName = $(this).siblings().text();
     var burger = `<li class="mdl-list__item">
-      <span class="mdl-list__item-primary-content">`
-        + burgerName +`
+      <span class="mdl-chip">
+        <span class="mdl-chip__text">`+ burgerName +`</span>
       </span>
     </li>`;
     $("#eatenBurgers").append(burger);
