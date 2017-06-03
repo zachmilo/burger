@@ -1,4 +1,4 @@
-const con = require("./connection");
+// const con = require("./connection");
 
 var orm = {
   selectAll:function(table,cb) {
